@@ -21,6 +21,12 @@ export class WebPage {
     return title === expectedTitle;
   }
 
+  async checkTitleExists(): Promise<boolean> {
+    const title = await this.page.title();
+    console.log("Title Exists : ", title )
+    return title ? true : false
+  }
+
   async closePage() {
     this.page.close()
   }
